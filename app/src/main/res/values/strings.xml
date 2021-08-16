@@ -5,4 +5,5 @@
     <string name="title_forecast">Forecast</string>
     <string name="title_settings">Settings</string>
     <string name="item">Today weather</string>
+    <string name="today_weather">Today weather</string>
 </resources>

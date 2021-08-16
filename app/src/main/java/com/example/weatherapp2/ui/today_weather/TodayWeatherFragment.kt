@@ -9,6 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp2.R
+import com.example.weatherapp2.data.WeatherApi
+import com.example.weatherapp2.data.response.CurrentWeatherResponse
+import com.example.weatherapp2.data.retrofit
+import kotlinx.android.synthetic.main.fragment_today_weather.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import com.example.weatherapp2.data.ApiCurrentWeatherService as ApiCurrentWeatherService
 
 class TodayWeatherFragment : Fragment() {
 
@@ -22,10 +30,24 @@ class TodayWeatherFragment : Fragment() {
         todayWeatherViewModel =
                 ViewModelProvider(this).get(TodayWeatherViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_today_weather, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+        /*val textView: TextView = root.findViewById(R.id.text_home)
         todayWeatherViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-        })
+        })*/
+        /*val retrofit = retrofit*/
+        getCurrentWeather()
         return root
+    }
+    fun getCurrentWeather() {
+        WeatherApi.retrofitService.getCurrentWeather().enqueue(object : Callback<CurrentWeatherResponse?> {
+            override fun onResponse(call: Call<CurrentWeatherResponse?>, response: Response<CurrentWeatherResponse?>) {
+                val responseBody = response.body()!!
+                text_home.text = responseBody.toString()
+            }
+
+            override fun onFailure(call: Call<CurrentWeatherResponse?>, t: Throwable) {
+
+            }
+        })
     }
 }
