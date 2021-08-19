@@ -14,7 +14,7 @@ const val API_KEY = "26b16c3e204bf93eff79c438b4364dcf"
         .build()
 interface ApiCurrentWeatherService {
     @GET("weather?q=Saint%20Petersburg&appid=26b16c3e204bf93eff79c438b4364dcf")
-    fun getCurrentWeather(): Call<CurrentWeatherResponse>
+    suspend fun getCurrentWeather(): CurrentWeatherResponse
 }
 
 class ApiService {
