@@ -29,7 +29,7 @@ class TodayWeatherFragment : Fragment() {
             textView.text = it
         })*/
         /*val retrofit = retrofit*/
-        getCurrentWeather()
+       // getCurrentWeather()
         return root
     }
     fun getCurrentWeather() {
@@ -43,9 +43,9 @@ class TodayWeatherFragment : Fragment() {
 
             }
         })*/
-        GlobalScope.launch {
+       /* GlobalScope.launch {
             val data = WeatherApi.retrofitService.getCurrentWeather()
             descriptionTextView.text = data.toString()
-        }
+        }*/
     }
 }
