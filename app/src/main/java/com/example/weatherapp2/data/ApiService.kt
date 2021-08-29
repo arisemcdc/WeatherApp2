@@ -20,7 +20,7 @@ const val BASE_URL = "http://api.weatherstack.com/"
 interface ApiCurrentWeatherService {
     /*@GET("weather?q=Saint%20Petersburg&appid=26b16c3e204bf93eff79c438b4364dcf")
     fun getCurrentWeather(): Call<CurrentWeatherResponse>*/
-    @GET("/current?access_key=782ed2295063e5aa2c4e5367f9451b5b&query=New%20York")
+    @GET("/forecast?access_key=782ed2295063e5aa2c4e5367f9451b5b&query=Saint-Petersburg&forecast_days=7&hourly=1")
     //https://api.weatherstack.com/current?access_key=782ed2295063e5aa2c4e5367f9451b5b&query=New%20York
     fun getCurrentWeather(): Call<CurrentWeatherResponse>
 }
