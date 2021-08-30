@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp2.R
 import com.example.weatherapp2.data.WeatherApi
 import kotlinx.android.synthetic.main.fragment_today_weather.*
+import kotlinx.android.synthetic.main.fragment_today_weather.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -24,6 +25,13 @@ class TodayWeatherFragment : Fragment() {
         todayWeatherViewModel =
                 ViewModelProvider(this).get(TodayWeatherViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_today_weather, container, false)
+        root.descriptionTextView.setText(todayWeatherViewModel.toString())
+        root.temperatureTextView.setText(todayWeatherViewModel.toString())
+        root.feelsLikeTemperatureTextView.setText(todayWeatherViewModel.toString())
+        root.windTextView.setText(todayWeatherViewModel.toString())
+        root.visibilityTextView.setText(todayWeatherViewModel.toString())
+        root.pressureTextView.setText(todayWeatherViewModel.toString())
+
         /*val textView: TextView = root.findViewById(R.id.text_home)
         todayWeatherViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
@@ -32,8 +40,8 @@ class TodayWeatherFragment : Fragment() {
        // getCurrentWeather()
         return root
     }
-    fun getCurrentWeather() {
-        /*WeatherApi.retrofitService.getCurrentWeather().enqueue(object : Callback<CurrentWeatherResponse?> {
+    /*fun getCurrentWeather() {
+        *//*WeatherApi.retrofitService.getCurrentWeather().enqueue(object : Callback<CurrentWeatherResponse?> {
             override fun onResponse(call: Call<CurrentWeatherResponse?>, response: Response<CurrentWeatherResponse?>) {
                 val responseBody = response.body()!!
                 text_home.text = responseBody.toString()
@@ -42,10 +50,10 @@ class TodayWeatherFragment : Fragment() {
             override fun onFailure(call: Call<CurrentWeatherResponse?>, t: Throwable) {
 
             }
-        })*/
-       /* GlobalScope.launch {
+        })*//*
+       *//* GlobalScope.launch {
             val data = WeatherApi.retrofitService.getCurrentWeather()
             descriptionTextView.text = data.toString()
-        }*/
-    }
+        }*//*
+    }*/
 }

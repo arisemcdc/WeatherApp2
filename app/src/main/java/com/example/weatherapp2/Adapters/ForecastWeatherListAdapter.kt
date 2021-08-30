@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp2.R
+import com.example.weatherapp2.data.response.ForecastWeatherMock
 import kotlinx.android.synthetic.main.forecast_item.view.*
 
-/*
-class ForecastWeatherListAdapter(val forecastWeatherList: List<ForecastWeather?>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ForecastWeatherListAdapter(val forecastWeatherList: List<ForecastWeatherMock?>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val viewHolder = ForecastWeatherHolder(
             LayoutInflater.from(parent.context)
@@ -27,10 +27,10 @@ class ForecastWeatherListAdapter(val forecastWeatherList: List<ForecastWeather?>
     }
 }
 class ForecastWeatherHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-    var forecastWeather: ForecastWeather?=null
+    var forecastWeather: ForecastWeatherMock?=null
     set(value) {
         field = value
         itemView.datetextView.text = value?.date
         itemView.avgtemptextView.text = value?.avgtemp.toString()
     }
-}*/
+}
