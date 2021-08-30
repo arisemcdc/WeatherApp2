@@ -4,17 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.weatherapp2.Adapters.ForecastWeatherListAdapter
+//import com.example.weatherapp2.Adapters.ForecastWeatherListAdapter
 import com.example.weatherapp2.R
-import com.example.weatherapp2.data.response.ForecastWeather
 import kotlinx.android.synthetic.main.fragment_forecast.*
 import kotlinx.android.synthetic.main.fragment_forecast.view.*
 
+/*
 class ForecastFragment : Fragment() {
     //lateinit var root: View
     private lateinit var forecastViewModel: ForecastViewModel
@@ -37,10 +35,12 @@ class ForecastFragment : Fragment() {
         forecastViewModel =
                 ViewModelProvider(this).get(ForecastViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_forecast, container, false)
-        /*val textView: TextView = root.findViewById(R.id.text_dashboard)
+        */
+/*val textView: TextView = root.findViewById(R.id.text_dashboard)
         forecastViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-        })*/
+        })*//*
+
         fillExampleForecastWeatherList()
         root.forecastWeatherListRecyclerView.layoutManager =LinearLayoutManager(context)
         forecastWeatherListAdapter = ForecastWeatherListAdapter(forecastWeatherList!!)
@@ -56,4 +56,4 @@ class ForecastFragment : Fragment() {
         forecastWeatherList.add(forecastWeather6)
         forecastWeatherList.add(forecastWeather7)
     }
-}
+}*/

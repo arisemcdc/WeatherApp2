@@ -30,10 +30,10 @@ class SettingsFragment : Fragment() {
         settingsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })*/
-        getCurrentWeather()
+        //getCurrentWeather()
         return root
     }
-    fun getCurrentWeather() {
+   /* fun getCurrentWeather() {
         WeatherApi.retrofitService.getCurrentWeather().enqueue(object : Callback<CurrentWeatherResponse?> {
             override fun onResponse(call: Call<CurrentWeatherResponse?>, response: Response<CurrentWeatherResponse?>) {
                 val responseBody = response.body()!!
@@ -44,5 +44,5 @@ class SettingsFragment : Fragment() {
 
             }
         })
-    }
+    }*/
 }
