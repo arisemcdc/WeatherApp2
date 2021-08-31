@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp2.R
 import com.example.weatherapp2.data.WeatherApi
@@ -25,12 +26,21 @@ class TodayWeatherFragment : Fragment() {
         todayWeatherViewModel =
                 ViewModelProvider(this).get(TodayWeatherViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_today_weather, container, false)
-        root.descriptionTextView.setText(todayWeatherViewModel.toString())
-        root.temperatureTextView.setText(todayWeatherViewModel.toString())
-        root.feelsLikeTemperatureTextView.setText(todayWeatherViewModel.toString())
-        root.windTextView.setText(todayWeatherViewModel.toString())
-        root.visibilityTextView.setText(todayWeatherViewModel.toString())
-        root.pressureTextView.setText(todayWeatherViewModel.toString())
+        todayWeatherViewModel.currentWeather.observe(viewLifecycleOwner, Observer {
+            root.descriptionTextView.setText(todayWeatherViewModel.currentWeather.value!!.current.weatherDescriptions[0])
+            root.temperatureTextView.setText(todayWeatherViewModel.currentWeather.value!!.current.temperature.toString())
+            root.feelsLikeTemperatureTextView.setText(todayWeatherViewModel.currentWeather.value!!.current.feelslike.toString())
+            root.windTextView.setText(todayWeatherViewModel.currentWeather.value!!.current.windSpeed.toString())
+            root.visibilityTextView.setText(todayWeatherViewModel.currentWeather.value!!.current.visibility.toString())
+            root.pressureTextView.setText(todayWeatherViewModel.currentWeather.value!!.current.pressure.toString())
+        })
+
+        /*root.descriptionTextView.setText(todayWeatherViewModel.description.value)
+        root.temperatureTextView.setText(todayWeatherViewModel.temperature.value.toString())
+        root.feelsLikeTemperatureTextView.setText(todayWeatherViewModel.feelslike.value.toString())
+        root.windTextView.setText(todayWeatherViewModel.windSpeed.value.toString())
+        root.visibilityTextView.setText(todayWeatherViewModel.visibility.value.toString())
+        root.pressureTextView.setText(todayWeatherViewModel.pressure.value.toString())*/
 
         /*val textView: TextView = root.findViewById(R.id.text_home)
         todayWeatherViewModel.text.observe(viewLifecycleOwner, Observer {

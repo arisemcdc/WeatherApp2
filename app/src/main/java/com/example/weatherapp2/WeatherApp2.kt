@@ -7,4 +7,9 @@ class WeatherApp2: Application() {
     companion object {
         lateinit var repository: Repository
     }
+
+    override fun onCreate() {
+        super.onCreate()
+        repository = Repository()
+    }
 }
