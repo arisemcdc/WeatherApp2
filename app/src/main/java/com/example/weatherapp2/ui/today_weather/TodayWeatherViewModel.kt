@@ -10,7 +10,7 @@ class TodayWeatherViewModel : ViewModel() {
         val data = WeatherApp2.repository.getCurrentWeather()
         emit(data)
     }
-  /*  val description = Transformations.map(currentWeather){
+    val description = Transformations.map(currentWeather){
         it.current.weatherDescriptions[0]
     }
     val temperature = Transformations.map(currentWeather){
@@ -27,15 +27,6 @@ class TodayWeatherViewModel : ViewModel() {
     }
     val pressure = Transformations.map(currentWeather){
         it.current.pressure
-    }*/
-   /* private val _responseCurrentWeather = MutableLiveData<CurrentWeatherResponse>().apply {
-
     }
-    val responseCurrentWeather: LiveData<CurrentWeatherResponse> = _responseCurrentWeather
-    init {
-        getCurrentWeather()
-    }
-    private fun getCurrentWeather(){
 
-    }*/
 }
