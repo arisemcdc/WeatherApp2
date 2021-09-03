@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -52,7 +53,12 @@ class TodayWeatherFragment : Fragment() {
         todayWeatherViewModel.pressure.observe(viewLifecycleOwner, Observer {
             root.pressureTextView.setText(todayWeatherViewModel.pressure.value.toString())
         })
-
+        todayWeatherViewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            if (it == true)
+                root.progressBar.visibility = View.VISIBLE
+            else
+                root.progressBar.visibility = View.GONE
+        })
 
 
         return root
