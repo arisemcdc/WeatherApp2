@@ -1,13 +1,14 @@
 package com.example.weatherapp2.ui.notifications
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.weatherapp2.WeatherApp2
 
 class SettingsViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is settings Fragment"
+    val forecastWeather = liveData {
+        val data = WeatherApp2.repository.getForecastWeather()
+        emit(data)
     }
-    val text: LiveData<String> = _text
+    val dates = Transformations.map(forecastWeather){
+        it.forecast.values
+    }
 }

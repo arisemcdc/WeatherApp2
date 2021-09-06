@@ -14,4 +14,5 @@ class Repository {
         }
         return rezult
     }
+    suspend fun getForecastWeather() = WeatherApi.retrofitService.getForecastWeather()
 }
