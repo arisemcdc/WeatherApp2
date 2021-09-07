@@ -1,6 +1,7 @@
 package com.example.weatherapp2.data
 
 import com.example.weatherapp2.data.response.CurrentWeatherResponse
+import com.example.weatherapp2.data.response.Forecast
 import com.example.weatherapp2.data.response.ForecastWeather
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

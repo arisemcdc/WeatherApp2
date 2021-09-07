@@ -8,7 +8,7 @@ class SettingsViewModel : ViewModel() {
         val data = WeatherApp2.repository.getForecastWeather()
         emit(data)
     }
-    val dates = Transformations.map(forecastWeather){
+    val dates = Transformations.map(forecastWeather) {
         it.forecast.values
     }
 }
