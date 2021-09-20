@@ -1,11 +1,7 @@
 package com.example.weatherapp2.data.response
 
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import java.util.*
-
 
 data class Current(
     val cloudcover: Int,
