@@ -28,9 +28,9 @@ class SettingsFragment : Fragment() {
         settingsViewModel =
                 ViewModelProvider(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        settingsViewModel.dates.observe(viewLifecycleOwner, Observer {
+       /* settingsViewModel.dates.observe(viewLifecycleOwner, Observer {
             root.responseTextView.setText(settingsViewModel.dates.value.toString())
-        })
+        })*/
 
         return root
     }

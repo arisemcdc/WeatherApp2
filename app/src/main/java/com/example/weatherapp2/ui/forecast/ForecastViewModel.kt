@@ -1,13 +1,22 @@
 package com.example.weatherapp2.ui.forecast
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.weatherapp2.WeatherApp2
+import com.example.weatherapp2.data.DataResult
 
 class ForecastViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is forecast Fragment"
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean> = _isLoading
+    val forecastWeather = liveData {
+        val data = WeatherApp2.repository.getForecastWeather()
+        _isLoading.value = true
+        emit(data)
+        _isLoading.value = false
     }
-    val text: LiveData<String> = _text
+    val dates = Transformations.map(forecastWeather) {
+        if (it is DataResult.Success)
+            it.data.forecast.values.toList()
+        else
+            null
+    }
 }

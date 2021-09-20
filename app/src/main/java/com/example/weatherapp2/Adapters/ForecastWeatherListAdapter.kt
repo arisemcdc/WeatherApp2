@@ -5,10 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp2.R
+import com.example.weatherapp2.data.response.Day
 import com.example.weatherapp2.data.response.ForecastWeatherMock
 import kotlinx.android.synthetic.main.forecast_item.view.*
 
-class ForecastWeatherListAdapter(val forecastWeatherList: List<ForecastWeatherMock?>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ForecastWeatherListAdapter(val forecastWeatherList: List<Day>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val viewHolder = ForecastWeatherHolder(
             LayoutInflater.from(parent.context)
@@ -27,7 +28,7 @@ class ForecastWeatherListAdapter(val forecastWeatherList: List<ForecastWeatherMo
     }
 }
 class ForecastWeatherHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-    var forecastWeather: ForecastWeatherMock?=null
+    var forecastWeather: Day?=null
     set(value) {
         field = value
         itemView.datetextView.text = value?.date

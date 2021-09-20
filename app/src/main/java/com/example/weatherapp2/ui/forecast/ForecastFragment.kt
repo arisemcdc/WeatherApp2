@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp2.Adapters.ForecastWeatherListAdapter
@@ -18,14 +19,14 @@ class ForecastFragment : Fragment() {
     private lateinit var forecastViewModel: ForecastViewModel
    lateinit var forecastWeatherListAdapter: ForecastWeatherListAdapter
     //Test mock forecastWeather
-    val forecastWeatherList = arrayListOf<ForecastWeatherMock>()
+    /*val forecastWeatherList = arrayListOf<ForecastWeatherMock>()
     val forecastWeather1 = ForecastWeatherMock("12.11.2021", 10)
     val forecastWeather2 = ForecastWeatherMock("13.11.2021", 9)
     val forecastWeather3 = ForecastWeatherMock("14.11.2021", 10)
     val forecastWeather4 = ForecastWeatherMock("15.11.2021", 11)
     val forecastWeather5 = ForecastWeatherMock("16.11.2021", 9)
     val forecastWeather6 = ForecastWeatherMock("17.11.2021", 8)
-    val forecastWeather7 = ForecastWeatherMock("18.11.2021", 10)
+    val forecastWeather7 = ForecastWeatherMock("18.11.2021", 10)*/
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -40,13 +41,25 @@ class ForecastFragment : Fragment() {
             textView.text = it
         })*/
 
-        fillExampleForecastWeatherList()
+        /*fillExampleForecastWeatherList()*/
         root.forecastWeatherListRecyclerView.layoutManager =LinearLayoutManager(context)
-        forecastWeatherListAdapter = ForecastWeatherListAdapter(forecastWeatherList!!)
-        root.forecastWeatherListRecyclerView.adapter = forecastWeatherListAdapter
+        forecastViewModel.dates.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                forecastWeatherListAdapter = ForecastWeatherListAdapter(it)
+                forecastWeatherListRecyclerView.adapter = forecastWeatherListAdapter
+                forecastWeatherListRecyclerView.visibility=View.VISIBLE
+                errorTextView.visibility = View.GONE
+            }
+            else {
+                forecastWeatherListRecyclerView.visibility=View.GONE
+                errorTextView.visibility = View.VISIBLE
+            }
+            })
+        /*forecastWeatherListAdapter = ForecastWeatherListAdapter(forecastWeatherList!!)
+        root.forecastWeatherListRecyclerView.adapter = forecastWeatherListAdapter*/
         return root
     }
-    fun fillExampleForecastWeatherList(){
+    /*fun fillExampleForecastWeatherList(){
         forecastWeatherList.add(forecastWeather1)
         forecastWeatherList.add(forecastWeather2)
         forecastWeatherList.add(forecastWeather3)
@@ -54,5 +67,5 @@ class ForecastFragment : Fragment() {
         forecastWeatherList.add(forecastWeather5)
         forecastWeatherList.add(forecastWeather6)
         forecastWeatherList.add(forecastWeather7)
-    }
+    }*/
 }
