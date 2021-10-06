@@ -53,8 +53,15 @@ class ForecastFragment : Fragment() {
             else {
                 forecastWeatherListRecyclerView.visibility=View.GONE
                 errorTextView.visibility = View.VISIBLE
+                errorTextView.text ="Error!"
             }
             })
+        forecastViewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            if (it == true)
+                root.progressBarForecastWeather.visibility = View.VISIBLE
+            else
+                root.progressBarForecastWeather.visibility = View.GONE
+        })
         /*forecastWeatherListAdapter = ForecastWeatherListAdapter(forecastWeatherList!!)
         root.forecastWeatherListRecyclerView.adapter = forecastWeatherListAdapter*/
         return root

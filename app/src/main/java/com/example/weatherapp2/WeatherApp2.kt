@@ -16,6 +16,7 @@ class WeatherApp2: Application() {
        /* val db = Room.databaseBuilder(applicationContext, RoomDB::class.java, "db")
                .addTypeConverter(Converters())
                 .build()*/
+         /*val db = Room.databaseBuilder(applicationContext, RoomDB::class.java, "db").build()*/
         repository = Repository()
     }
 }

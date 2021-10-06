@@ -53,6 +53,7 @@ dependencies {
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:x.x.x"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //Room
     def room_version = "2.3.0"
     implementation "androidx.room:room-runtime:$room_version"

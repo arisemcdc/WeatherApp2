@@ -4,6 +4,7 @@ import com.example.weatherapp2.data.DataResult
 import com.example.weatherapp2.data.WeatherApi
 import com.example.weatherapp2.data.response.Current
 import com.example.weatherapp2.data.response.CurrentWeatherResponse
+import com.example.weatherapp2.data.response.Day
 import com.example.weatherapp2.data.response.ForecastWeather
 import java.lang.Exception
 
@@ -24,7 +25,7 @@ import java.lang.Exception
     }
     suspend fun getForecastWeather() = WeatherApi.retrofitService.getForecastWeather()
 }*/
-class Repository {
+class Repository () {
     suspend fun getCurrentWeather():DataResult<CurrentWeatherResponse>{
         val rezult = try {
             DataResult.Success(WeatherApi.retrofitService.getCurrentWeather())
@@ -36,9 +37,15 @@ class Repository {
     /*suspend fun getForecastWeather() = WeatherApi.retrofitService.getForecastWeather()*/
     suspend fun getForecastWeather(): DataResult<ForecastWeather> {
         val rezult = try {
-            DataResult.Success( WeatherApi.retrofitService.getForecastWeather())
+            val data = WeatherApi.retrofitService.getForecastWeather().forecast.values.toList()
+           /* localDB.forecastDAO().insert(data)*/
+            DataResult.Success(WeatherApi.retrofitService.getForecastWeather())
         } catch (e:Exception) {
-            DataResult.Error(e)
+            /*val localData = localDB.forecastDAO().getForecast()
+            if (localData.isNotEmpty())
+                DataResult.Success(localData)
+            else*/
+                DataResult.Error(e)
         }
         return rezult
     }
