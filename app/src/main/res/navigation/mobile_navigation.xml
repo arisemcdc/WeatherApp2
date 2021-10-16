@@ -15,7 +15,11 @@
         android:id="@+id/forecastFragment"
         android:name="com.example.weatherapp2.ui.forecast.ForecastFragment"
         android:label="@string/title_forecast"
-        tools:layout="@layout/fragment_forecast" />
+        tools:layout="@layout/fragment_forecast" >
+        <action
+            android:id="@+id/action_forecastFragment_to_detailForecastWeatherFragment"
+            app:destination="@id/detailForecastWeatherFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/settingsFragment"
@@ -26,4 +30,13 @@
         android:id="@+id/mainActivity"
         android:name="com.example.weatherapp2.MainActivity"
         android:label="MainActivity" />
+    <fragment
+        android:id="@+id/detailForecastWeatherFragment"
+        android:name="com.example.weatherapp2.ui.detailforecastweatherfragment.DetailForecastWeatherFragment"
+        android:label="detail_forecast_weather_fragment"
+        tools:layout="@layout/detail_forecast_weather_fragment" >
+        <argument
+            android:name="dayId"
+            app:argType="string" />
+    </fragment>
 </navigation>

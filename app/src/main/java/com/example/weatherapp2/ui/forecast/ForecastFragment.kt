@@ -7,14 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp2.Adapters.ForecastWeatherListAdapter
 import com.example.weatherapp2.R
+import com.example.weatherapp2.data.response.Day
 import com.example.weatherapp2.data.response.ForecastWeatherMock
 import kotlinx.android.synthetic.main.fragment_forecast.*
 import kotlinx.android.synthetic.main.fragment_forecast.view.*
 
-class ForecastFragment : Fragment() {
+class ForecastFragment : Fragment(), ForecastWeatherListAdapter.Listener {
     //lateinit var root: View
     private lateinit var forecastViewModel: ForecastViewModel
    lateinit var forecastWeatherListAdapter: ForecastWeatherListAdapter
@@ -45,7 +47,7 @@ class ForecastFragment : Fragment() {
         root.forecastWeatherListRecyclerView.layoutManager =LinearLayoutManager(context)
         forecastViewModel.dates.observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                forecastWeatherListAdapter = ForecastWeatherListAdapter(it)
+                forecastWeatherListAdapter = ForecastWeatherListAdapter(it,this)
                 forecastWeatherListRecyclerView.adapter = forecastWeatherListAdapter
                 forecastWeatherListRecyclerView.visibility=View.VISIBLE
                 errorTextView.visibility = View.GONE
@@ -65,6 +67,11 @@ class ForecastFragment : Fragment() {
         /*forecastWeatherListAdapter = ForecastWeatherListAdapter(forecastWeatherList!!)
         root.forecastWeatherListRecyclerView.adapter = forecastWeatherListAdapter*/
         return root
+    }
+
+    override fun onClickDay(day: Day) {
+        val action = ForecastFragmentDirections.actionForecastFragmentToDetailForecastWeatherFragment(day.date)
+        findNavController().navigate(action)
     }
     /*fun fillExampleForecastWeatherList(){
         forecastWeatherList.add(forecastWeather1)
