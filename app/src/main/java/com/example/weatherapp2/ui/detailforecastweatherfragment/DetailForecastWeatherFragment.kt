@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.example.weatherapp2.R
@@ -19,7 +20,7 @@ class DetailForecastWeatherFragment : Fragment() {
         fun newInstance() = DetailForecastWeatherFragment()
     }
     val args: DetailForecastWeatherFragmentArgs by navArgs()
-    private lateinit var viewModel: DetailForecastWeatherViewModel
+    val viewModel: DetailForecastWeatherViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -36,7 +37,7 @@ class DetailForecastWeatherFragment : Fragment() {
                 root.totalSnowTextViewValue.setText(day.totalsnow.toString())
                 root.uvIndexTextViewValue.setText(day.uvIndex.toString())
                 root.containerDetailForecastWeather.visibility = View.VISIBLE
-                //root.errorTextView.visibility = View.GONE
+                root.errorTextView.visibility = View.GONE
             } else {
                 root.containerDetailForecastWeather.visibility = View.GONE
                 root.errorTextView.visibility = View.VISIBLE
@@ -46,12 +47,4 @@ class DetailForecastWeatherFragment : Fragment() {
 
         return root
     }
-
-override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailForecastWeatherViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
-
 }

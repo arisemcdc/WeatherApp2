@@ -20,6 +20,10 @@ class ForecastWeatherListAdapter(val forecastWeatherList: List<Day>, val listene
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.forecast_item, parent, false)
         )
+        viewHolder.itemView.setOnClickListener {
+          if (viewHolder.forecastWeather != null)
+               listener.onClickDay(viewHolder.forecastWeather!!)
+        }
         return viewHolder
     }
 

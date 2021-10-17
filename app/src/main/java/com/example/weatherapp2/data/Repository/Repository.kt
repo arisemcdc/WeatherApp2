@@ -37,7 +37,7 @@ class Repository () {
     /*suspend fun getForecastWeather() = WeatherApi.retrofitService.getForecastWeather()*/
     suspend fun getForecastWeather(): DataResult<ForecastWeather> {
         val rezult = try {
-            val data = WeatherApi.retrofitService.getForecastWeather().forecast.values.toList()
+            //val data = WeatherApi.retrofitService.getForecastWeather().forecast.values.toList()
            /* localDB.forecastDAO().insert(data)*/
             DataResult.Success(WeatherApi.retrofitService.getForecastWeather())
         } catch (e:Exception) {

@@ -26,7 +26,7 @@ data class Day(
         val maxtemp: Int,
         val mintemp: Int,
         val sunhour: Double,
-        val totalsnow: Int,
+        val totalsnow: Double,
         val uvIndex: Int
 )
 typealias Forecast = Map<String, Day>

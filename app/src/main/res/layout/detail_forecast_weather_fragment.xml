@@ -14,6 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Date"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avgTempTextView" />
 
@@ -24,6 +25,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Date"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avgTempTextView" />
 
@@ -34,6 +36,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Average temp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,6 +47,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Average temp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +58,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Date epoch"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
 
@@ -64,6 +69,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Max temp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateEpochTextView" />
 
@@ -74,6 +80,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Min temp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maxTempTextView" />
 
@@ -84,6 +91,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Sun hour"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/minTempTextView" />
 
@@ -94,6 +102,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Total snow"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sunhourTextView" />
 
@@ -104,6 +113,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="uvIndex:"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalSnowTextView" />
 
@@ -114,6 +124,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Date Epoch"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextViewValue" />
 
@@ -124,6 +135,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Max temp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateEpochTextViewValue" />
 
@@ -134,6 +146,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Min temp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maxTempTextViewValue" />
 
@@ -144,6 +157,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Sun hour"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/minTempTextViewValue" />
 
@@ -154,6 +168,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="Total snow"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sunHourTextViewValue" />
 
@@ -164,6 +179,7 @@
         android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:text="uvIndex"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalSnowTextViewValue" />
 

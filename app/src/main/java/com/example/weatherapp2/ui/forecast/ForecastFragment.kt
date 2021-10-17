@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -18,7 +19,8 @@ import kotlinx.android.synthetic.main.fragment_forecast.view.*
 
 class ForecastFragment : Fragment(), ForecastWeatherListAdapter.Listener {
     //lateinit var root: View
-    private lateinit var forecastViewModel: ForecastViewModel
+    lateinit var forecastViewModel: ForecastViewModel
+  /*  val forecastViewModel: ForecastViewModel by viewModels()*/
    lateinit var forecastWeatherListAdapter: ForecastWeatherListAdapter
     //Test mock forecastWeather
     /*val forecastWeatherList = arrayListOf<ForecastWeatherMock>()
@@ -70,6 +72,7 @@ class ForecastFragment : Fragment(), ForecastWeatherListAdapter.Listener {
     }
 
     override fun onClickDay(day: Day) {
+        /*val action = ForecastFragmentDirections.actionForecastFragmentToDetailForecastWeatherFragment(day.date)*/
         val action = ForecastFragmentDirections.actionForecastFragmentToDetailForecastWeatherFragment(day.date)
         findNavController().navigate(action)
     }
