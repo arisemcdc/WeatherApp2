@@ -11,7 +11,7 @@ class ForecastViewModel : ViewModel() {
     val forecastWeather = liveData {
         val data = WeatherApp2.repository.getForecastWeather()
         _isLoading.value = true
-        delay(2000)
+        //delay(2000)
         emit(data)
         _isLoading.value = false
     }

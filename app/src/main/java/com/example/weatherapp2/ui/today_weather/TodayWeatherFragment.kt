@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp2.R
 import com.example.weatherapp2.data.WeatherApi
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_today_weather.*
 import kotlinx.android.synthetic.main.fragment_today_weather.view.*
 import kotlinx.coroutines.GlobalScope
@@ -52,6 +53,20 @@ class TodayWeatherFragment : Fragment() {
         })
         todayWeatherViewModel.pressure.observe(viewLifecycleOwner, Observer {
             root.pressureTextView.setText(todayWeatherViewModel.pressure.value.toString())
+        })
+        todayWeatherViewModel.weatherIcon.observe(viewLifecycleOwner, Observer {
+            Picasso.with(context)
+                .load(it)
+                /*.placeholder(R.drawable.ic_dashboard_black_24dp)
+                .error(R.drawable.ic_home_black_24dp)*/
+                .into(weatherConditionsImageView, object: com.squareup.picasso.Callback {
+                    override fun onSuccess() {
+                    }
+
+                    override fun onError() {
+
+                    }
+                }  )
         })
         todayWeatherViewModel.isLoading.observe(viewLifecycleOwner, Observer {
             if (it == true)
